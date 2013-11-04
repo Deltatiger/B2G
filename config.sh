@@ -30,7 +30,7 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
+GITREPO=${GITREPO:-"git://github.com/Deltatiger/b2g-manifest"}
 BRANCH=${BRANCH:-master}
 
 while [ $# -ge 1 ]; do
@@ -71,11 +71,6 @@ echo GECKO_OBJDIR=$PWD/objdir-gecko >> .tmp-config
 echo DEVICE_NAME=$1 >> .tmp-config
 
 case "$1" in
-"galaxy-s2")
-	echo DEVICE=galaxys2 >> .tmp-config &&
-	repo_sync $1
-	;;
-
 "galaxy-nexus")
 	echo DEVICE=maguro >> .tmp-config &&
 	repo_sync $1
@@ -84,37 +79,6 @@ case "$1" in
 "nexus-4")
 	echo DEVICE=mako >> .tmp-config &&
 	repo_sync nexus-4
-	;;
-
-"optimus-l5")
-	echo DEVICE=m4 >> .tmp-config &&
-	repo_sync $1
-	;;
-
-"nexus-s")
-	echo DEVICE=crespo >> .tmp-config &&
-	repo_sync $1
-	;;
-
-"nexus-s-4g")
-	echo DEVICE=crespo4g >> .tmp-config &&
-	repo_sync $1
-	;;
-
-"otoro"|"unagi"|"keon"|"inari"|"leo"|"hamachi"|"peak"|"helix"|"wasabi")
-	echo DEVICE=$1 >> .tmp-config &&
-	repo_sync $1
-	;;
-
-"tara")
-	echo DEVICE=sp8810ea >> .tmp-config &&
-	echo LUNCH=sp8810eabase-eng >> .tmp-config &&
-	repo_sync $1
-	;;
-
-"pandaboard")
-	echo DEVICE=panda >> .tmp-config &&
-	repo_sync $1
 	;;
 
 "emulator"|"emulator-jb")
@@ -129,8 +93,8 @@ case "$1" in
 	repo_sync $1
 	;;
 
-"flo")
-	echo DEVICE=flo >> .tmp-config &&
+"buzz")
+	echo DEVICE=buzz >> .tmp-config &&
 	repo_sync $1
 	;;
 
@@ -142,20 +106,7 @@ case "$1" in
 	echo - galaxy-s2
 	echo - galaxy-nexus
 	echo - nexus-4
-	echo - nexus-s
-	echo - nexus-s-4g
-	echo - flo "(Nexus 7 2013)"
-	echo - otoro
-	echo - unagi
-	echo - inari
-	echo - keon
-	echo - peak
-	echo - leo
-	echo - hamachi
-	echo - helix
-	echo - wasabi
-	echo - tara
-	echo - pandaboard
+	echo - buzz
 	echo - emulator
 	echo - emulator-jb
 	echo - emulator-x86
